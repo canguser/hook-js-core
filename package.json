@@ -1,0 +1,52 @@
+{
+  "name": "@hook-js/core",
+  "version": "1.0.0",
+  "description": "the core package of hook-js",
+  "main": "dist/hook.core.js",
+  "mainMini": "dist/hook.core.mini.js",
+  "module": "dist/hook.core.es.js",
+  "libName": "$hookCore",
+  "_sourceName": "hook.core",
+  "author": "Cangshi",
+  "license": "",
+  "scripts": {
+    "build": "yarn run rollup && yarn run rollup:mini && yarn run rollup:esm:es5",
+    "do-publish": "yarn run build && yarn publish --access public",
+    "run-publish": "yarn publish --access public",
+    "rollup": "rollup -c",
+    "rollup:mini": "cross-env NODE_ENV=prod rollup -c",
+    "rollup:esm": "cross-env NODE_ENV=esm rollup -c",
+    "rollup:esm:es5": "cross-env NODE_ENV=esm5 rollup -c",
+    "gen-dts": "npx tsc main/index.js --declaration --allowJs --emitDeclarationOnly --outDir types",
+    "gen-docs": "jsdoc2md \"main/**/*.js\" > docs/readme.md",
+    "gen-dts:docs": "yarn run gen-dts && yarn run gen-docs"
+  },
+  "files": [
+    "dist",
+    "docs",
+    "types",
+    "readme.md",
+    "LICENSE",
+    "package.json"
+  ],
+  "types": "types/index.d.ts",
+  "dependencies": {
+    "@func-js/core": "^0.1.9"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "jsdoc-to-markdown": "^6.0.1",
+    "rollup": "^2.34.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^4.1.2"
+  }
+}
