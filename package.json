@@ -8,7 +8,7 @@
   "libName": "$hookCore",
   "_sourceName": "hook.core",
   "author": "Cangshi",
-  "license": "",
+  "license": "Apache-2.0",
   "scripts": {
     "build": "yarn run rollup && yarn run rollup:mini && yarn run rollup:esm:es5",
     "do-publish": "yarn run build && yarn publish --access public",
@@ -23,7 +23,7 @@
   },
   "files": [
     "dist",
-    "docs",
+    "build",
     "types",
     "readme.md",
     "LICENSE",
