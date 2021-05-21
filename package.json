@@ -11,8 +11,8 @@
   "license": "Apache-2.0",
   "scripts": {
     "build": "yarn run rollup && yarn run rollup:mini && yarn run rollup:esm:es5",
-    "do-publish": "yarn run build && yarn publish --access public",
-    "run-publish": "rimraf dist && yarn publish --access public --tag latest --new-version $npm_package_version",
+    "do-publish": "yarn run build && yarn run run-publish",
+    "run-publish": "yarn publish --access public --tag latest --new-version $npm_package_version",
     "rollup": "rollup -c",
     "rollup:mini": "cross-env NODE_ENV=prod rollup -c",
     "rollup:esm": "cross-env NODE_ENV=esm rollup -c",
@@ -49,5 +49,6 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^7.0.2",
     "typescript": "^4.1.2"
-  }
+  },
+  "repository": "https://github.com/canguser/hook-js-core.git"
 }
